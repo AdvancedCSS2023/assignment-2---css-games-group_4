@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  cursor: crosshair;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  color: var(--header-color);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.3rem;
+  color: var(--paragraph-color);
+}
+
+body {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.ball-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 100px;
+}
+
+input {
+  appearance: none;
+  content: url(https://www.pngall.com/wp-content/uploads/5/Red-Ball-Transparent.png);
+  height: 60px;
+  width: 70px;
+  animation: fall 5s linear;
+  animation-delay: 7s;
+  animation-iteration-count: infinite;
+}
+
+input:checked {
+  opacity: 0;
+}
+
+.game__info--game-over {
+  display: none;
+}
+
+.game__info--win-screen {
+  height: 115dvh;
+  width: 100dvw;
+  background-color: var(--info-container-color);
+  @include flex-centered;
+  position: absolute;
+  top: -110dvh;
+  transition: 200ms;
+  z-index: 5;
+}
+
+input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  + input:checked
+  ~ .game__info--win-screen {
+  top: 9.7dvh;
+}
+
+.game__info--next-stage {
+  height: 50px;
+  width: 180px;
+  background-color: var(--next-stage-color);
+  font-size: 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.game__info--next-stage a {
+  text-decoration: none;
+  color: var(--next-stage-anchor-color);
+  font-weight: bold;
+}
+
+.game__info--next-stage:hover {
+  background-color: var(--next-stage-hover-color);
+}
+
+.game__info--container-stage-two-four {
+  height: 100%;
+  width: 100dvw;
+  background-color: var(--info-container-color);
+  @include flex-centered;
+  animation: info-box 1s linear 5s 1 normal both;
+  position: absolute;
+  top: 0;
+}
+
+.game__info--container {
+  @include flex-centered;
+}
